@@ -9,7 +9,7 @@ export PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CURRENT_DATE_TIME="`date "+%H_%M_%S"`";
 
 ## Create naming 
-FILENAME="${CURRENT_DATE_TIME}.txt"
+FILENAME="${CURRENT_DATE_TIME}.jpg"
 
 function logger(){
     echo -e $1  >> ${LOG_FILE}
@@ -18,8 +18,7 @@ function logger(){
 function createMedia {
     logger "\n++ ${CURRENT_DATE_TIME} ++"
     logger "Creating ${FILENAME}"
-
-    echo 'SOMETHING' >> "${LOCAL_OUTPUT_DIR}/${FILENAME}" 
+    fswebcam -r 1280x720 --no-banner "${LOCAL_OUTPUT_DIR}/${FILENAME}" 
 }
 
 function uploadMedia {
